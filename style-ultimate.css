@@ -217,4 +217,117 @@ body {
     .main-content { padding: 15px; }
     .top-nav { flex-direction: column; gap: 15px; }
     .top-nav input { width: 100%; }
+}/* --- ULTIMATE HOMEPAGE VIDEO BACKGROUND STYLES --- */
+.hero-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2; /* Behinde everything */
+}
+
+.hero-video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ensures video covers entire area */
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
+    z-index: -1; /* Above video, below content */
+}
+
+/* Adjust landing body for video background */
+.landing-body {
+    background-color: transparent; /* No background color needed, video is there */
+    position: relative; /* For z-index stacking */
+    z-index: 1; /* Above video and overlay */
+}
+
+.profile-section h1 {
+    font-size: 4rem; /* Bigger for impact */
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary-red), #FFC107); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(229, 57, 53, 0.6);
+    animation: textFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes textFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-section .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.cta-button-container {
+    margin-top: 60px;
+    animation: fadeIn 1.5s ease-out 0.5s forwards;
+    opacity: 0; /* Hidden initially for animation */
+}
+
+.main-cta-button {
+    background: linear-gradient(45deg, #00C853, #009688); /* Green gradient */
+    color: white;
+    padding: 18px 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 200, 83, 0.6);
+}
+
+/* Service cards in the new layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 60px;
+    animation: cardsFadeIn 1.5s ease-out 1s forwards;
+    opacity: 0; /* Hidden initially */
+}
+
+@keyframes cardsFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.services-grid .service-card {
+    margin-bottom: 0; /* Remove margin, grid handles spacing */
+}
+
+/* Adjustments for responsive */
+@media (max-width: 768px) {
+    .profile-section h1 {
+        font-size: 3rem;
+    }
+    .main-cta-button {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
 }
