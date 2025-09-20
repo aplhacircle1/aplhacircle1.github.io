@@ -129,3 +129,41 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 /* ===== RESPONSIVE STYLES (MOBILE-FRIENDLY) ===== */
 @media (max-width: 992px) { .sidebar { transform: translateX(-100%); position: fixed; } .main-content { margin-left: 0; } .content-body { flex-direction: column; } .pricing-col { position: static; } .footer-container { flex-direction: column; text-align: center; } }
 @media (max-width: 576px) { .profile-section h1 { font-size: 2.8rem; } .profile-section .subtitle { font-size: 1rem; } .main-cta-button { font-size: 1.2rem; padding: 15px 30px; } .main-content { padding: 15px; } .top-nav { flex-direction: column; gap: 15px; } .top-nav input { width: 100%; } .page-title { font-size: 1.5rem; } .current-price { font-size: 1.8rem; } }
+/* --- HOMEPAGE VIDEO BACKGROUND STYLES --- */
+.hero-video-container { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    z-index: -2; 
+}
+
+.hero-video { 
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; 
+    height: auto; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    object-fit: cover; 
+}
+
+.video-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: -1; 
+}
+
+.landing-body { 
+    background-color: transparent !important; 
+    position: relative; 
+    z-index: 1; 
+}
