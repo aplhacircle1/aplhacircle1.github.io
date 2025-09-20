@@ -27,7 +27,7 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 .hero-video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -2; }
 .hero-video { min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; }
 .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
-.landing-body { background-color: transparent; position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+.landing-body { background-color: transparent !important; position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
 .container { max-width: 720px; width: 100%; text-align: center; animation: fadeIn 1s ease-out; }
 .profile-section { margin-bottom: 40px; }
 .profile-pic { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-red); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 20px rgba(229, 57, 53, 0.5); }
@@ -45,39 +45,11 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 .card-link { text-decoration: none; color: inherit; }
 .card-arrow { margin-left: auto; font-size: 1.5rem; color: var(--primary-red); transition: transform 0.3s ease; }
 .service-card:hover .card-arrow { transform: translateX(5px); }
-
-/* --- COMING SOON STYLES --- */
-.coming-soon {
-    opacity: 0.5;
-    cursor: not-allowed;
-    position: relative;
-    overflow: hidden;
-}
-.coming-soon:hover {
-    transform: none;
-    box-shadow: none;
-}
-.coming-soon .card-arrow {
-    display: none;
-}
-.coming-soon::after {
-    content: 'Coming Soon';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(229, 57, 53, 0.8);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.coming-soon:hover::after {
-    opacity: 1;
-}
+.coming-soon { opacity: 0.5; cursor: not-allowed; position: relative; overflow: hidden; }
+.coming-soon:hover { transform: none; box-shadow: none; }
+.coming-soon .card-arrow { display: none; }
+.coming-soon::after { content: 'Coming Soon'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(229, 57, 53, 0.8); color: white; padding: 5px 15px; border-radius: 5px; font-weight: 600; font-size: 1rem; opacity: 0; transition: opacity 0.3s ease; }
+.coming-soon:hover::after { opacity: 1; }
 
 /* --- DASHBOARD PAGES (-pro.html) STYLES --- */
 .dashboard-body { background-color: var(--bg-light); color: var(--text-dark); }
@@ -129,41 +101,3 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 /* ===== RESPONSIVE STYLES (MOBILE-FRIENDLY) ===== */
 @media (max-width: 992px) { .sidebar { transform: translateX(-100%); position: fixed; } .main-content { margin-left: 0; } .content-body { flex-direction: column; } .pricing-col { position: static; } .footer-container { flex-direction: column; text-align: center; } }
 @media (max-width: 576px) { .profile-section h1 { font-size: 2.8rem; } .profile-section .subtitle { font-size: 1rem; } .main-cta-button { font-size: 1.2rem; padding: 15px 30px; } .main-content { padding: 15px; } .top-nav { flex-direction: column; gap: 15px; } .top-nav input { width: 100%; } .page-title { font-size: 1.5rem; } .current-price { font-size: 1.8rem; } }
-/* --- HOMEPAGE VIDEO BACKGROUND STYLES --- */
-.hero-video-container { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    overflow: hidden; 
-    z-index: -2; 
-}
-
-.hero-video { 
-    min-width: 100%; 
-    min-height: 100%; 
-    width: auto; 
-    height: auto; 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    object-fit: cover; 
-}
-
-.video-overlay { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.7); 
-    z-index: -1; 
-}
-
-.landing-body { 
-    background-color: transparent !important; 
-    position: relative; 
-    z-index: 1; 
-}
