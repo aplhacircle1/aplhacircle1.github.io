@@ -8,9 +8,9 @@
     --primary-red: #E53935;
     --primary-blue: #1a73e8;
     --text-light: #f0f2f5;
-    --text-dark: #2c3e50; /* Darker text for more contrast */
+    --text-dark: #2c3e50;
     --text-muted: #8492a6;
-    --bg-light: #f7f9fc; /* Slightly blue-ish light background */
+    --bg-light: #f7f9fc;
     --white: #ffffff;
     --border-color: #e6ecf1;
     --gradient-green-btn: linear-gradient(45deg, #00C853, #009688);
@@ -46,6 +46,39 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 .card-arrow { margin-left: auto; font-size: 1.5rem; color: var(--primary-red); transition: transform 0.3s ease; }
 .service-card:hover .card-arrow { transform: translateX(5px); }
 
+/* --- COMING SOON STYLES --- */
+.coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+    position: relative;
+    overflow: hidden;
+}
+.coming-soon:hover {
+    transform: none;
+    box-shadow: none;
+}
+.coming-soon .card-arrow {
+    display: none;
+}
+.coming-soon::after {
+    content: 'Coming Soon';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(229, 57, 53, 0.8);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.coming-soon:hover::after {
+    opacity: 1;
+}
+
 /* --- DASHBOARD PAGES (-pro.html) STYLES --- */
 .dashboard-body { background-color: var(--bg-light); color: var(--text-dark); }
 .dashboard-container { display: flex; }
@@ -55,6 +88,8 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 .sidebar-logo span { font-weight: 600; font-size: 1.2rem; }
 .sidebar-nav .nav-item { display: block; padding: 12px 15px; text-decoration: none; color: #555; font-weight: 500; border-radius: 8px; margin-bottom: 10px; transition: background-color 0.2s ease, color 0.2s ease; }
 .sidebar-nav .nav-item:hover, .sidebar-nav .nav-item.active { background-color: #e8f0fe; color: var(--primary-blue); }
+.sidebar-nav .nav-item.coming-soon { opacity: 0.6; cursor: not-allowed; }
+.sidebar-nav .nav-item.coming-soon:hover { background-color: transparent; color: #555; }
 .main-content { margin-left: 250px; flex-grow: 1; padding: 30px 40px; animation: fadeIn 0.8s ease-out; }
 .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: var(--white); padding: 15px 25px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.05); }
 .top-nav input { width: 300px; padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 8px; }
@@ -92,55 +127,5 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg
 .footer-bottom { border-top: 1px solid var(--border-color); text-align: center; padding-top: 20px; margin-top: 30px; font-size: 0.9rem; }
 
 /* ===== RESPONSIVE STYLES (MOBILE-FRIENDLY) ===== */
-@media (max-width: 992px) {
-    /* Dashboard: Hide sidebar and adjust main content */
-    .sidebar {
-        transform: translateX(-100%); /* Hide sidebar off-screen */
-        position: fixed;
-    }
-    .main-content {
-        margin-left: 0;
-    }
-    .content-body {
-        flex-direction: column;
-    }
-    .pricing-col {
-        position: static; /* Remove sticky positioning on mobile */
-    }
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-@media (max-width: 576px) {
-    /* Homepage: Adjust font sizes for smaller screens */
-    .profile-section h1 {
-        font-size: 2.8rem;
-    }
-    .profile-section .subtitle {
-        font-size: 1rem;
-    }
-    .main-cta-button {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-    
-    /* Dashboard: Adjust padding and layout for smaller screens */
-    .main-content {
-        padding: 15px;
-    }
-    .top-nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .top-nav input {
-        width: 100%;
-    }
-    .page-title {
-        font-size: 1.5rem;
-    }
-    .current-price {
-        font-size: 1.8rem;
-    }
-}
+@media (max-width: 992px) { .sidebar { transform: translateX(-100%); position: fixed; } .main-content { margin-left: 0; } .content-body { flex-direction: column; } .pricing-col { position: static; } .footer-container { flex-direction: column; text-align: center; } }
+@media (max-width: 576px) { .profile-section h1 { font-size: 2.8rem; } .profile-section .subtitle { font-size: 1rem; } .main-cta-button { font-size: 1.2rem; padding: 15px 30px; } .main-content { padding: 15px; } .top-nav { flex-direction: column; gap: 15px; } .top-nav input { width: 100%; } .page-title { font-size: 1.5rem; } .current-price { font-size: 1.8rem; } }
